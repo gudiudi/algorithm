@@ -23,3 +23,15 @@ const fibonacciRecursive = (n) => {
 
 console.log(fibonacciIterative(8));
 console.log(fibonacciRecursive(8));
+
+const fibs = (n, sequence = [1, 2]) => {
+	if (sequence.length >= n)
+		return [...sequence]
+			.filter((x) => x % 2 === 0)
+			.reduce((acc, value) => acc + value, 0);
+
+	const fib = sequence[sequence.length - 1] + sequence[sequence.length - 2];
+	return fibs(n, [...sequence, fib]);
+};
+
+fibs(10);
