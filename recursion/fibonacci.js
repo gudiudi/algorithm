@@ -24,6 +24,7 @@ const fibonacciRecursive = (n) => {
 console.log(fibonacciIterative(8));
 console.log(fibonacciRecursive(8));
 
+/* Even Fibs */
 const fibs = (n, sequence = [1, 2]) => {
 	if (sequence.length >= n)
 		return [...sequence]
@@ -35,3 +36,23 @@ const fibs = (n, sequence = [1, 2]) => {
 };
 
 fibs(10);
+
+const evenFib = (limit) => {
+	let a = 1;
+	let b = 2;
+	let result = b;
+
+	while (b < limit) {
+		const fib = a + b;
+		a = b;
+		b = fib;
+
+		if (b % 2 === 0) {
+			result += fib;
+		}
+	}
+
+	return result;
+};
+
+console.log(evenFib(4000000));
